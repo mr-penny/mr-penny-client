@@ -1,0 +1,9 @@
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://github.com/mr-penny/mr-penny-client']
+- name: 'gcr.io/cloud-builders/yarn'
+  args: ['install']
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['run','ng','--','build','--prod','--aot']
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ['app', 'deploy']
