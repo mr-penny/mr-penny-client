@@ -19,6 +19,7 @@ export class DashboardResolver implements Resolve<Pokemon[]> {
       query: allPokemons,
     })
       .pipe(
+        delay(300),
         map(result => result.data.pokemons)
       );
   }
